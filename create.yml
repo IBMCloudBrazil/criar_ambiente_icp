@@ -1,0 +1,21 @@
+- name: Creating Virtual Servers
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: Build instance request
+    sl_vm:
+      hostname: "{{ inventory_hostname }}"
+      domain: jmbarros.local
+      datacenter: sao01
+      tags: ansible-module-test
+      hourly: yes
+      private: no
+      dedicated: no
+      local_disk: yes
+      cpus: 4
+      memory: 12288
+      disks: [100]
+      image_id: 82b94443-b216-495b-b4cb-4103f0e909c6
+      wait: no
+    delegate_to: localhost
+
