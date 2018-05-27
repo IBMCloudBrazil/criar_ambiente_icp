@@ -31,6 +31,9 @@ def apt ( pkg ):
 ip=socket.gethostbyname(socket.gethostname())
 hostname=socket.gethostname()
 
+apt("ansible")
+git("https://github.com/IBMCloudBrazil/criar_ambiente_icp.git")
+
 file = open("/opt/ibm-cloud-private-ce-2.1.0.2/cluster/hosts", "w")
 file.write("")
 file.close()
@@ -40,7 +43,6 @@ file.write("[minicloud]\n")
 file.write( hostname + " ansible_ssh_host=" + ip + "\n")
 file.close()
 
-apt("ansible")
-git("https://github.com/IBMCloudBrazil/criar_ambiente_icp.git")
+
 play_book("/root/criar_ambiente_icp/hosts.yml","/root/criar_ambiente_icp/inventory")
 docker_run("-e LICENSE=accept --net=host  -t -v /opt/ibm-cloud-private-ce-2.1.0.2/cluster:/installer/cluster ibmcom/icp-inception:2.1.0.2 install")
