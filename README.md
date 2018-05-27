@@ -19,3 +19,23 @@
 curl -l https://raw.githubusercontent.com/IBMCloudBrazil/criar_ambiente_icp/master/install.py | python
 ````
 
+---------------------------------
+
+## Usando o docker para criar os servidores 
+- execute o container 
+````
+docker run -it jmbarros/icp-nodes:2.1.0.2 /bin/bash
+`````
+- configure o cli da IBM Cloud
+````
+slcli setup
+````
+- edite o arquivo hosts.txt e configure os hosts que vc quer
+````
+vim hosts.txt
+````
+- execute o playbook de instalação 
+````
+ansible-playbook -i hosts.txt create.yml
+''''
+
