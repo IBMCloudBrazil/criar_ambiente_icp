@@ -12,3 +12,10 @@
 
 ## Para destruir os servidores
 - ansible-playbook -i hosts.txt.destroy.yml
+
+## Para instalar o ICP nos servidores criados
+- faça login no servidor e execute
+````
+curl -l https://raw.githubusercontent.com/jmbarros/criar_ambiente_icp/master/install.py | python
+````
+
