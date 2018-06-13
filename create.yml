@@ -5,9 +5,9 @@
   - name: Build instance request
     sl_vm:
       hostname: "{{ inventory_hostname }}"
-      domain: jmbarros.local
+      domain: icp.local
       datacenter: sao01
-      tags: ansible-module-test
+      tags: icp demo
       hourly: yes
       private: no
       dedicated: no

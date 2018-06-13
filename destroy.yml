@@ -2,7 +2,7 @@
   hosts: all
   gather_facts: no
   tasks:
-  - name: Build instance request
+  - name: Destroying instances
     sl_vm:
       hostname: "{{ inventory_hostname }}"
       state: absent
